@@ -19,8 +19,6 @@ ini_set("log_errors", '1');
 const DS = DIRECTORY_SEPARATOR;
 define('BASE_PATH', realpath(dirname(__FILE__)));
 
-date_default_timezone_set('Europe/Kiev');
-
 require_once BASE_PATH . '/vendor/autoload.php';
 
 (new Dotenv)->bootEnv(BASE_PATH . '/.env');
