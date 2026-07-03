@@ -1,0 +1,46 @@
+#!/usr/bin/env php
+<?php
+declare(strict_types = 1);
+
+use App\Command\ModsDeploy;
+use App\Command\ModsList;
+use App\Command\SaveAddMoney;
+use App\Command\SaveHardOff;
+use App\Command\SaveHardOn;
+use App\Command\SaveInfo;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Dotenv\Dotenv;
+use Symfony\Component\Process\Process;
+
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+ini_set("log_errors", '1');
+
+const DS = DIRECTORY_SEPARATOR;
+define('BASE_PATH', realpath(dirname(__FILE__)));
+
+date_default_timezone_set('Europe/Kiev');
+
+require_once BASE_PATH . '/vendor/autoload.php';
+
+(new Dotenv)->bootEnv(BASE_PATH . '/.env');
+
+$app = new Application('SnowReaper');
+
+$process = new Process(['git', 'describe', '--tags'], BASE_PATH);
+$process->run();
+if ($process->isSuccessful()) {
+    $version = trim($process->getOutput());
+    $app->setVersion($version);
+}
+
+$app->addCommands([
+    new SaveAddMoney('save:add-money'),
+    new SaveInfo('save:info'),
+    new SaveHardOn('save:hard:on'),
+    new SaveHardOff('save:hard:off'),
+    new ModsDeploy('mods:deploy'),
+    new ModsList('mods:list'),
+]);
+
+$app->run();
