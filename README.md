@@ -4,8 +4,20 @@ Snowrunner save manipulation and mods deployment tool
 ## Env
 * PHP 8.5
 * Symfony 8
+* Windows 7+
+* WinRAR (for mods deployment)
 
-# List mods
+## Setting up
+1. create `.env` file (see `.env.example`)
+2. save manipulation setup
+   * set `SAVES_DIR` env var
+3. mods deployment setup
+   * set `MODS_SOURCE_DIR` var to point to directory with custom modified mods, each directory name in format `{mod_id}_{whatever_mod_name}`, only mod id is important (like `12345_kenworth`)
+   * set `MODS_DEPLOY_DIR` var to `modio` deployment destination
+   * install WinRAR and set `WINRAR_BIN` env var
+
+
+## List mods
 ```bash
 php sr mods:list
 ```
