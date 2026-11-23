@@ -1,0 +1,52 @@
+name: GitHub Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Create GitHub Releases
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAGS=$(git tag -l "v*" --sort=v:refname)
+          else
+            TAGS="${{ github.ref_name }}"
+          fi
+
+          for TAG in $TAGS; do
+            if gh release view "$TAG" >/dev/null 2>&1; then
+              echo "Release $TAG already exists, skipping."
+              continue
+            fi
+          
+            echo "Creating new release for $TAG ..."
+
+            VERSION="${TAG#v}"
+            NOTES=$(awk -v ver="$VERSION" '
+              $0 ~ "^## \\[?" ver "\\]?" { found=1; next }
+              found && /^## / { exit }
+              found { print }
+            ' CHANGELOG.md)
+
+            if [ -n "$NOTES" ]; then
+              gh release create "$TAG" --title "$TAG" --notes "$NOTES"
+            else
+              gh release create "$TAG" --title "$TAG" --generate-notes
+            fi
+          done
