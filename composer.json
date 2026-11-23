@@ -29,6 +29,6 @@
     "scripts": {
         "changelog": "conventional-changelog",
         "changelog-rewrite": "conventional-changelog --history",
-        "release": "conventional-changelog --commit --no-verify"
+        "release": "conventional-changelog --commit --no-change-without-commits"
     }
 }
