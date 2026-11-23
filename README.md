@@ -19,53 +19,53 @@ Snowrunner save manipulation and mods deployment tool
 
 ## List mods
 ```bash
-php sr mods:list
+sr mods:list
 ```
 
 ## Deploy mods
 ### All mods
 ```bash
-php sr mods:deploy
+sr mods:deploy
 ```
 ### Only those matching provided filter
 ```bash
-php sr mods:deploy kenworth
+sr mods:deploy kenworth
 ```
 ### Verbose mode
 ```bash
-php sr mods:deploy kenworth -v
+sr mods:deploy kenworth -v
 ```
 ### Dry run
 ```bash
-php sr mods:deploy kenworth --dry-run
+sr mods:deploy kenworth --dry-run
 ```
 
 ## Save info
 ### On slot 1
 ```bash
-php sr save:info
+sr save:info
 ```
 ### On slot 2
 ```bash
-php sr save:info -s 2
+sr save:info -s 2
 ```
 
 ## Add money
 ### Default (add 100k to slot 1)
 ```bash
-php sr save:add-money
+sr save:add-money
 ```
 ### Add 20k to slot 2
 ```bash
-php sr save:add-money -s 2 -a 20000
+sr save:add-money -s 2 -a 20000
 ```
 
 ## Hard mode
 ### Enable
 ```bash
-php sr save:hard:on
+sr save:hard:on
 ```
 ### Disable
 ```bash
-php sr save:hard:off
+sr save:hard:off
 ```
