@@ -1,11 +1,14 @@
 {
     "name": "maxakawizard/snow-reaper",
     "description": "Snowrunner utility",
+    "version": "0.2.0",
     "license": "MIT",
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "App\\": ["src/"]
+            "App\\": [
+                "src/"
+            ]
         }
     },
     "config": {
@@ -19,5 +22,13 @@
         "symfony/dotenv": "~8.0",
         "symfony/finder": "~8.0",
         "symfony/process": "~8.0"
+    },
+    "require-dev": {
+        "marcocesarato/php-conventional-changelog": "~1.0"
+    },
+    "scripts": {
+        "changelog": "conventional-changelog",
+        "changelog-rewrite": "conventional-changelog --history",
+        "release": "conventional-changelog --commit --no-verify"
     }
 }
