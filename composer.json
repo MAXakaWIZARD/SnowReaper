@@ -18,10 +18,10 @@
     },
     "require": {
         "php": "^8.5",
-        "symfony/console": "~8.0",
-        "symfony/dotenv": "~8.0",
-        "symfony/finder": "~8.0",
-        "symfony/process": "~8.0"
+        "symfony/console": "~8.1",
+        "symfony/dotenv": "~8.1",
+        "symfony/finder": "~8.1",
+        "symfony/process": "~8.1"
     },
     "require-dev": {
         "marcocesarato/php-conventional-changelog": "~1.0"
