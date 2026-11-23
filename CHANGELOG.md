@@ -4,6 +4,15 @@
 All notable changes to this project will be documented in this file.
 <!-- END HEADER -->
 
+## [0.2.1](https://github.com/MAXakaWIZARD/SnowReaper/compare/v0.2.0...v0.2.1) (2026-11-23)
+
+### Bug Fixes
+
+* Add composer lockfile ([f3f737](https://github.com/MAXakaWIZARD/SnowReaper/commit/f3f7373ee24b9bbc7fbf4fc9b6d5c174d5e5693b))
+
+
+---
+
 ## [0.2.0](https://github.com/MAXakaWIZARD/SnowReaper/compare/v0.1.1...v0.2.0) (2026-11-23)
 
 ### Features
