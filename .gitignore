@@ -2,4 +2,3 @@ vendor
 saves
 tmp
 .env
-composer.lock
