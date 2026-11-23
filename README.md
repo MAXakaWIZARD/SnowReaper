@@ -8,11 +8,12 @@ Snowrunner save manipulation and mods deployment tool
 * WinRAR (for mods deployment)
 
 ## Setting up
-1. create `.env` file (see `.env.example`)
-2. save manipulation setup
+### Save manipulation setup
+   * create `.env` file (see `.env.example`)
    * set `SAVES_DIR` env var
-3. mods deployment setup
-   * set `MODS_SOURCE_DIR` var to point to directory with custom modified mods, each directory name in format `{mod_id}_{whatever_mod_name}`, only mod id is important (like `12345_kenworth`)
+### Mods deployment setup
+   * create `.env` file (see `.env.example`)
+   * set `MODS_SOURCE_DIR` var to point to directory with custom modified mods, each directory name in format `{mod_id}_{whatever_mod_name}`, only `mod_id` is important (like `12345_kenworth`)
    * set `MODS_DEPLOY_DIR` var to `modio` deployment destination
    * install WinRAR and set `WINRAR_BIN` env var
 
